@@ -1,0 +1,40 @@
+<%- include('includes/head.ejs') %>
+
+  <header class="header">
+    <%- include('includes/navigation.ejs') %>
+  </header>
+
+  <main class="main">
+    <div class="addTrash__wrapper">
+      <form action="/add-trash" class="addTrash__form" method="POST">
+        <div class="form__wrapper">
+          <label for="trashName" class="form__label">Nazwa odpadu:</label>
+          <input type="text" class="form__input" name="trashName" value="Testowa nazwa">
+        </div>
+        <div class="form__wrapper">
+          <label for="trashType" class="form__label">Rodzaj odpadu:</label>
+          <select name="trashType" class="form__input" value="">
+            <option disabled value> -- wybierz -- </option>
+            <option value="plastik">plastik</option>
+            <option value="szkło">szkło</option>
+            <option value="papier">papier</option>
+            <option value="bio">bio</option>
+            <option value="zmieszane">zmieszane</option>
+          </select>
+        </div>
+        <div class="form__wrapper">
+          <label for="trashDescription" class="form__label">Opis:</label>
+          <input type="text" class="form__input" name="trashDescription" value="Testowy opis">
+        </div>
+        <div class="form__wrapper">
+          <label for="trashImageURL" class="form__label">Zdjęcie:</label>
+          <input type="text" class="form__input" name="trashImageURL" value="Testowe zdjęcie">
+        </div>
+        <div class="form__wrapper">
+          <button type="submit" class="form__btn">Dodaj</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <%- include('includes/footer.ejs') %>

@@ -1,0 +1,135 @@
+@use 'colors' as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1rem;
+	font-family: 'Jura', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+// NAVIGATION
+
+.nav {
+	&__wrapper {
+		width: 100vw;
+		height: 15vh;
+		background-color: $yellow;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	&__item {
+		font-size: 3rem;
+		list-style-type: none;
+		transition: transform 0.4s;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $navy;
+	}
+}
+
+// INDEX
+
+.main {
+	width: 100vw;
+	height: 85vh;
+	background-color: $dark-green;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__title {
+		font-size: 10rem;
+		color: $light-yellow;
+	}
+}
+
+// ADD-TRASH
+
+.addTrash {
+	&__form {
+		width: 800px;
+		height: 500px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		background-color: $yellow;
+	}
+}
+
+.form {
+	&__wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding: 2rem;
+	}
+
+	&__label {
+		font-size: 3rem;
+	}
+
+	&__input {
+		width: 300px;
+		background-color: $light-yellow;
+		border: none;
+		border-bottom: 2px solid $dark-green;
+		font-size: 1.5rem;
+		font-family: inherit;
+		padding: 1rem;
+		transition: background-color 0.4s, color 0.4s;
+		&:focus {
+			outline: none;
+			background-color: $dark-green;
+			color: $white;
+		}
+	}
+
+	&__btn {
+		width: 250px;
+		height: 50px;
+		font-size: 2rem;
+		cursor: pointer;
+		background-color: $dark-green;
+		color: $white;
+		border: none;
+		text-transform: uppercase;
+		opacity: 0.9;
+		transform: opacity 0.4s;
+		font-family: inherit;
+		&:hover {
+			opacity: 1;
+		}
+
+		&:active {
+			transform: scale(1.05);
+		}
+
+		&:focus {
+			outline: none;
+			opacity: 1;
+		}
+	}
+}
