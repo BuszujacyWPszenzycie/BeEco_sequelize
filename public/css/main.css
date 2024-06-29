@@ -18,6 +18,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .nav__wrapper {
@@ -44,8 +45,8 @@ body {
 
 .main {
   width: 100vw;
-  height: 85vh;
-  background-color: #0f2e0f;
+  min-height: 85vh;
+  background-color: rgb(15, 46, 15);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +54,9 @@ body {
 .main__title {
   font-size: 10rem;
   color: #fdeec1;
+}
+.main__search {
+  background-color: #ffffff;
 }
 
 .addTrash__form {
@@ -77,7 +81,7 @@ body {
   width: 300px;
   background-color: #fdeec1;
   border: none;
-  border-bottom: 2px solid #0f2e0f;
+  border-bottom: 2px solid rgb(15, 46, 15);
   font-size: 1.5rem;
   font-family: inherit;
   padding: 1rem;
@@ -85,7 +89,7 @@ body {
 }
 .form__input:focus {
   outline: none;
-  background-color: #0f2e0f;
+  background-color: rgb(15, 46, 15);
   color: #ffffff;
 }
 .form__btn {
@@ -93,7 +97,7 @@ body {
   height: 50px;
   font-size: 2rem;
   cursor: pointer;
-  background-color: #0f2e0f;
+  background-color: rgb(15, 46, 15);
   color: #ffffff;
   border: none;
   text-transform: uppercase;
@@ -110,4 +114,74 @@ body {
 .form__btn:focus {
   outline: none;
   opacity: 1;
+}
+
+.search__pageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search__itemWrapper {
+  width: 300px;
+  height: 500px;
+  border-right: 2px solid #d3d2da;
+  border-bottom: 2px solid #d3d2da;
+  margin: 2rem;
+  transition: transform 0.4s;
+}
+.search__itemWrapper:hover {
+  transform: scale(1.05);
+}
+.search__imgWrapper {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.search__trashImageURL {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.search__imgShadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.search__textWrapper {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-end;
+}
+.search__trashName {
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding: 1.5rem;
+}
+.search__trashType {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  padding: 1.5rem;
+}
+.search__trashDescription {
+  font-size: 1.3rem;
+  padding: 1.5rem;
+  margin-left: 3rem;
+  display: flex;
+  justify-content: flex-end; /* Aligns items horizontally to the right */
+  align-items: center;
+  text-align: justify;
+  margin-bottom: 3rem;
 }/*# sourceMappingURL=main.css.map */

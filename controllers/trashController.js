@@ -1,4 +1,3 @@
-const { title } = require('process')
 const TrashItem = require('../models/trashItem')
 const TrashTypes = require('../models/trashTypes')
 
@@ -17,7 +16,6 @@ exports.getAddTrash = (req, res, next) => {
 }
 
 exports.postAddTrash = (req, res, next) => {
-	console.log('działa?')
 	const trashName = req.body.trashName
 	const trashType = req.body.trashType
 	const trashDescription = req.body.trashDescription
@@ -35,6 +33,21 @@ exports.postAddTrash = (req, res, next) => {
 		.then(result => {
 			console.log('Product created')
 			return res.redirect('/')
+		})
+		.catch(err => {
+			console.log(err)
+		})
+}
+
+exports.getAllTrash = (req, res, next) => {
+	console.log('getAllTrash - działa?')
+	TrashItem.findAll()
+		.then(allTrashItems => {
+			res.render('search', {
+				allTrashItems: allTrashItems,
+				pageTitle: 'Wyszukiwarka',
+				path: '/search',
+			})
 		})
 		.catch(err => {
 			console.log(err)

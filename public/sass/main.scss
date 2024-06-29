@@ -20,6 +20,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	overflow-x: hidden;
 }
 
 // NAVIGATION
@@ -54,7 +55,7 @@ body {
 
 .main {
 	width: 100vw;
-	height: 85vh;
+	min-height: 85vh;
 	background-color: $dark-green;
 	display: flex;
 	justify-content: center;
@@ -63,6 +64,10 @@ body {
 	&__title {
 		font-size: 10rem;
 		color: $light-yellow;
+	}
+
+	&__search {
+		background-color: $white;
 	}
 }
 
@@ -133,3 +138,130 @@ body {
 		}
 	}
 }
+
+.search {
+	&__pageWrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	&__itemWrapper {
+		width: 300px;
+		height: 500px;
+		border-right: 2px solid $gray;
+		border-bottom: 2px solid $gray;
+		margin: 2rem;
+		transition: transform 0.4s;
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+	&__imgWrapper {
+		width: 100%;
+		height: 50%;
+		overflow: hidden;
+		position: relative;
+	}
+
+	&__trashImageURL {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__imgShadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1;
+	}
+	&__textWrapper {
+		width: 100%;
+		height: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		align-items: flex-end;
+	}
+
+	&__trashName {
+		font-size: 2rem;
+		text-transform: uppercase;
+		padding: 1.5rem;
+	}
+
+	&__trashType {
+		font-size: 1.8rem;
+		text-transform: uppercase;
+		padding: 1.5rem;
+	}
+
+	&__trashDescription {
+		font-size: 1.3rem;
+		padding: 1.5rem;
+		margin-left: 3rem;
+		display: flex;
+		justify-content: flex-end; /* Aligns items horizontally to the right */
+		align-items: center;
+		text-align: justify;
+		margin-bottom: 3rem;
+	}
+}
+
+// SEARCH
+
+// .search {
+// 	&__pageWrapper {
+// 		display: flex;
+// 		justify-content: center;
+// 		align-items: center;
+// 		flex-wrap: wrap;
+// 	}
+// 	&__itemWrapper {
+// 		width: 350px;
+// 		height: 350px;
+// 		background-color: $yellow;
+// 		margin: 3rem;
+// 		cursor: pointer;
+// 		transition: transform 0.4s;
+// 		&:hover {
+// 			transform: scale(1.05);
+// 		}
+// 	}
+
+// 	&__trashName {
+// 		color: $dark-green;
+// 	}
+
+// 	&__imgWrapper {
+// 		width: 200px;
+// 		height: 200px;
+// 		overflow: hidden;
+// 		position: relative;
+// 	}
+
+// 	&__trashImageURL {
+// 		width: 100%;
+// 		height: 100%;
+// 		object-fit: cover;
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 	}
+
+// 	&__imgShadow {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		background-color: rgba(0, 0, 0, 0.5);
+// 		z-index: 1;
+// 	}
+// }

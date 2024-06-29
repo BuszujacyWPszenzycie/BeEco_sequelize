@@ -1,0 +1,38 @@
+<%- include('includes/head.ejs') %>
+
+  <header class="header">
+    <%- include('includes/navigation.ejs') %>
+  </header>
+
+  <main class="main main__search">
+
+    <div class="search__pageWrapper">
+
+      <% for (trashItem of allTrashItems) { %>
+        <div class="search__itemWrapper">
+          <div class="search__imgWrapper">
+            <div class="search__imgShadow"></div>
+            <img src="<%= trashItem.trashImageURL %>" alt="<%= trashItem.trashName %>" class="search__trashImageURL">
+          </div>
+          <div class="search__textWrapper">
+            <h2 class="search__trashName">
+              <%= trashItem.trashName %>
+            </h2>
+            <h3 class="search__trashType">
+              <%= trashItem.trashType %>
+            </h3>
+            <p class="search__trashDescription">
+              <%= trashItem.trashDescription %>
+            </p>
+          </div>
+
+        </div>
+
+        <% } %>
+
+    </div>
+
+
+  </main>
+
+  <%- include('includes/footer.ejs') %>
