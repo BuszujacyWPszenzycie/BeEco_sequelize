@@ -4,34 +4,30 @@
     <%- include('includes/navigation.ejs') %>
   </header>
 
-  <main class="main main__search">
+  <main class="main">
 
-    <div class="search__pageWrapper">
+    <section class="section search" id="search">
+      <div class="search__wrapper">
+        <input type="text" class="search__input" placeholder="Wyszukaj...">
+        <a href="find.html" class="search__button"><i class="fa-solid fa-magnifying-glass search__icon"></i></a>
+      </div>
 
-      <% for (trashItem of allTrashItems) { %>
-        <div class="search__itemWrapper">
-          <div class="search__imgWrapper">
-            <div class="search__imgShadow"></div>
-            <img src="<%= trashItem.trashImageURL %>" alt="<%= trashItem.trashName %>" class="search__trashImageURL">
-          </div>
-          <div class="search__textWrapper">
-            <h2 class="search__trashName">
-              <%= trashItem.trashName %>
-            </h2>
-            <h3 class="search__trashType">
-              <%= trashItem.trashType %>
-            </h3>
-            <p class="search__trashDescription">
-              <%= trashItem.trashDescription %>
-            </p>
-          </div>
-
+      <div class="search__iconsWrapper">
+        <div class="search__iconWrapper">
+          <span class="search__number search__number--one">0</span>
+          <p class="search__text">wyszukiwań</p>
         </div>
+        <div class="search__iconWrapper">
+          <span class="search__number search__number--two">0</span>
+          <p class="search__text">zapisanych</p>
+        </div>
+        <div class="search__iconWrapper">
+          <span class="search__number search__number--three">0</span>
+          <p class="search__text">ponowień</p>
+        </div>
+      </div>
 
-        <% } %>
-
-    </div>
-
+    </section>
 
   </main>
 

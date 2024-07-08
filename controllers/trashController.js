@@ -40,16 +40,22 @@ exports.postAddTrash = (req, res, next) => {
 }
 
 exports.getAllTrash = (req, res, next) => {
-	console.log('getAllTrash - działa?')
 	TrashItem.findAll()
 		.then(allTrashItems => {
-			res.render('search', {
+			res.render('all-trash', {
 				allTrashItems: allTrashItems,
-				pageTitle: 'Wyszukiwarka',
-				path: '/search',
+				pageTitle: 'Wszystkie produkty',
+				path: '/all-trash',
 			})
 		})
 		.catch(err => {
 			console.log(err)
 		})
+}
+
+exports.getSearchTrash = (req, res, next) => {
+	res.render('search', {
+		pageTitle: 'Wyszukiwarka',
+		path: '/search',
+	})
 }

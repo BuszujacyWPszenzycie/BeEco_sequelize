@@ -1,0 +1,38 @@
+<%- include('includes/head.ejs') %>
+
+  <header class="header">
+    <%- include('includes/navigation.ejs') %>
+  </header>
+
+  <main class="main main__allTrash">
+
+    <div class="allTrash__pageWrapper">
+
+      <% for (trashItem of allTrashItems) { %>
+        <div class="allTrash__itemWrapper">
+          <div class="allTrash__imgWrapper">
+            <div class="allTrash__imgShadow"></div>
+            <img src="<%= trashItem.trashImageURL %>" alt="<%= trashItem.trashName %>" class="allTrash__trashImageURL">
+          </div>
+          <div class="allTrash__textWrapper">
+            <h2 class="allTrash__trashName">
+              <%= trashItem.trashName %>
+            </h2>
+            <h3 class="allTrash__trashType">
+              <%= trashItem.trashType %>
+            </h3>
+            <p class="allTrash__trashDescription">
+              <%= trashItem.trashDescription %>
+            </p>
+          </div>
+
+        </div>
+
+        <% } %>
+
+    </div>
+
+
+  </main>
+
+  <%- include('includes/footer.ejs') %>

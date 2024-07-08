@@ -33,6 +33,7 @@ body {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
+		box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.3);
 	}
 
 	&__item {
@@ -56,18 +57,13 @@ body {
 .main {
 	width: 100vw;
 	min-height: 85vh;
-	background-color: $dark-green;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
 	&__title {
 		font-size: 10rem;
-		color: $light-yellow;
-	}
-
-	&__search {
-		background-color: $white;
+		color: $dark-green;
 	}
 }
 
@@ -81,6 +77,7 @@ body {
 		flex-direction: column;
 		justify-content: space-around;
 		background-color: $yellow;
+		box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.3);
 	}
 }
 
@@ -139,7 +136,9 @@ body {
 	}
 }
 
-.search {
+// ALL TRASH
+
+.allTrash {
 	&__pageWrapper {
 		display: flex;
 		justify-content: center;
@@ -149,12 +148,13 @@ body {
 	&__itemWrapper {
 		width: 300px;
 		height: 500px;
-		border-right: 2px solid $gray;
-		border-bottom: 2px solid $gray;
+
 		margin: 2rem;
-		transition: transform 0.4s;
+		transition: transform 0.4s, box-shadow 0.4s;
+		box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.3);
 		&:hover {
 			transform: scale(1.05);
+			box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.5);
 		}
 	}
 	&__imgWrapper {
@@ -211,6 +211,88 @@ body {
 		align-items: center;
 		text-align: justify;
 		margin-bottom: 3rem;
+	}
+}
+
+// SEARCH
+
+.search {
+	position: relative;
+	width: 100vw;
+	height: 85vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__wrapper {
+		position: relative;
+	}
+
+	&__button {
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translate(-50%, -50%);
+		font-size: 3rem;
+		color: $dark-green;
+		opacity: 0.5;
+		border: none;
+		background-color: transparent;
+		transform: opacity 0.4s;
+		cursor: pointer;
+		&:focus {
+			outline: none;
+			opacity: 1;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&__input {
+		width: 60vw; /* Adjust as needed */
+		padding: 2rem;
+		height: 100px;
+		font-size: 3rem;
+		border: none;
+		border-bottom: 1px solid $dark-green;
+		outline: none;
+		font-family: inherit;
+		background: linear-gradient(to right, $yellow 50%, transparent 50%);
+		background-size: 200% 100%;
+		background-position: 100% 0;
+		transition: background-position 0.5s;
+		box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.3);
+		&:focus {
+			background-position: 0 0;
+		}
+	}
+	&__iconsWrapper {
+		position: absolute;
+		bottom: 0;
+		display: flex;
+	}
+	&__iconWrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 5rem;
+		margin-bottom: 10rem;
+		color: $dark-green;
+		font-size: 3rem;
+	}
+
+	&__number {
+		font-size: 5rem;
+		font-weight: bold;
+	}
+
+	&__text {
+		margin-top: 2rem;
+		text-transform: uppercase;
 	}
 }
 

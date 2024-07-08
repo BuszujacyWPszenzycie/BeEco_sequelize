@@ -10,6 +10,8 @@ router.get('/add-trash', trashController.getAddTrash)
 
 router.post('/add-trash', trashController.postAddTrash)
 
-router.get('/search', trashController.getAllTrash)
+router.get('/all-trash', trashController.getAllTrash)
+
+router.get('/search', trashController.getSearchTrash)
 
 module.exports = router
