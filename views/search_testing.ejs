@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs') %>
+
+  <header class="header">
+    <%- include('includes/navigation.ejs') %>
+  </header>
+
+  <main class="main">
+
+    <form action="/found-values" method="POST" class="">
+      <label for="">Wyszukiwarka</label>
+      <input type="text" name="trashName" id="trashName" value="">
+      <button>wyszukaj</button>
+    </form>
+
+  </main>
+
+  <%- include('includes/footer.ejs') %>

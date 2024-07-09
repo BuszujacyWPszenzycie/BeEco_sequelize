@@ -7,10 +7,10 @@
   <main class="main">
 
     <section class="section search" id="search">
-      <div class="search__wrapper">
-        <input type="text" class="search__input" placeholder="Wyszukaj...">
-        <a href="find.html" class="search__button"><i class="fa-solid fa-magnifying-glass search__icon"></i></a>
-      </div>
+      <form class="search__wrapper" action="/found-values" method="POST">
+        <input type="text" class="search__input" placeholder="Wyszukaj..." name="trashName" id="trashName">
+        <button class="search__button"><i class="fa-solid fa-magnifying-glass search__icon"></i></button>
+      </form>
 
       <div class="search__iconsWrapper">
         <div class="search__iconWrapper">

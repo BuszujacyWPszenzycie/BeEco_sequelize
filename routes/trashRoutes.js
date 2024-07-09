@@ -12,6 +12,8 @@ router.post('/add-trash', trashController.postAddTrash)
 
 router.get('/all-trash', trashController.getAllTrash)
 
-router.get('/search', trashController.getSearchTrash)
+router.get('/search', trashController.getSearchPage)
+
+router.post('/found-values', trashController.getSearchTrash)
 
 module.exports = router

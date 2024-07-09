@@ -1,5 +1,6 @@
 const TrashItem = require('../models/trashItem')
 const TrashTypes = require('../models/trashTypes')
+const sequelize = require('../util/database')
 
 exports.showMainPage = (req, res, next) => {
 	res.render('index', {
@@ -53,9 +54,54 @@ exports.getAllTrash = (req, res, next) => {
 		})
 }
 
-exports.getSearchTrash = (req, res, next) => {
+exports.getSearchPage = (req, res, next) => {
 	res.render('search', {
-		pageTitle: 'Wyszukiwarka',
 		path: '/search',
+		pageTitle: 'Wyszukaj',
 	})
 }
+
+exports.getSearchTrash = (req, res, next) => {
+	// const searchValue = 'Mięso'
+	const searchValue = req.body.trashName
+	TrashItem.findAll({
+		where: {
+			trashName: searchValue,
+		},
+	})
+		.then(foundValues => {
+			res.render('found-values', {
+				pageTitle: 'Znaleziono',
+				path: '/found-values',
+				foundValues: foundValues,
+			})
+		})
+		.catch(err => console.log(err))
+}
+
+// Function from ChatGPT
+
+// exports.getSearchTrash = async (req, res, next) => {
+// 	const searchValue = 'bio'
+// 	if (!searchValue) {
+// 		return res.status(400).json({ error: 'No search value provided' })
+// 	}
+// 	try {
+// 		const foundValues = await TrashItem.findAll({
+// 			where: {
+// 				[sequelize.Sequelize.Op.or]: [
+// 					{ trashName: { [sequelize.Sequelize.Op.like]: `%${searchValue}%` } },
+// 					{ trashType: { [sequelize.Sequelize.Op.like]: `%${searchValue}%` } },
+// 					{ trashDescription: { [sequelize.Sequelize.Op.like]: `%${searchValue}%` } },
+// 				],
+// 			},
+// 		})
+// 		res.render('found-values', {
+// 			path: '/found-values',
+// 			pageTitle: 'Znaleziono',
+// 			foundValues: foundValues,
+// 		})
+// 	} catch (error) {
+// 		res.status(500).json({ error: error.message })
+// 	}
+// }

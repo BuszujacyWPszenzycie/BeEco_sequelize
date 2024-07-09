@@ -1,0 +1,32 @@
+<%- include('includes/head.ejs') %>
+
+  <header class="header">
+    <%- include('includes/navigation.ejs') %>
+  </header>
+
+  <main class="main">
+
+    <% for (value of foundValues) { %>
+      <div class="allTrash__itemWrapper">
+        <div class="allTrash__imgWrapper">
+          <div class="allTrash__imgShadow"></div>
+          <img src="<%= value.trashImageURL %>" alt="<%= value.trashName %>" class="allTrash__trashImageURL">
+        </div>
+        <div class="allTrash__textWrapper">
+          <h2 class="allTrash__trashName">
+            <%= value.trashName %>
+          </h2>
+          <h3 class="allTrash__trashType">
+            <%= value.trashType %>
+          </h3>
+          <p class="allTrash__trashDescription">
+            <%= value.trashDescription %>
+          </p>
+        </div>
+
+      </div>
+      <% } %>
+
+  </main>
+
+  <%- include('includes/footer.ejs') %>
