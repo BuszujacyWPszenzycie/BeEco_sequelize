@@ -1,6 +1,7 @@
 const TrashItem = require('../models/trashItem')
 const TrashTypes = require('../models/trashTypes')
 const sequelize = require('../util/database')
+const { Op } = require('sequelize')
 
 exports.showMainPage = (req, res, next) => {
 	res.render('index', {
@@ -66,7 +67,11 @@ exports.getSearchTrash = (req, res, next) => {
 	const searchValue = req.body.trashName
 	TrashItem.findAll({
 		where: {
-			trashName: searchValue,
+			[Op.or]: [
+				{ trashName: { [Op.like]: `%${searchValue}%` } },
+				{ trashType: { [Op.like]: `%${searchValue}%` } },
+				{ trashDescription: { [Op.like]: `%${searchValue}%` } },
+			],
 		},
 	})
 		.then(foundValues => {
@@ -78,6 +83,25 @@ exports.getSearchTrash = (req, res, next) => {
 		})
 		.catch(err => console.log(err))
 }
+
+// Working function - finding only in trashName
+
+// exports.getSearchTrash = (req, res, next) => {
+// 	const searchValue = req.body.trashName
+// 	TrashItem.findAll({
+// 		where: {
+// 			trashName: searchValue,
+// 		},
+// 	})
+// 		.then(foundValues => {
+// 			res.render('found-values', {
+// 				pageTitle: 'Znaleziono',
+// 				path: '/found-values',
+// 				foundValues: foundValues,
+// 			})
+// 		})
+// 		.catch(err => console.log(err))
+// }
 
 // Function from ChatGPT
 
